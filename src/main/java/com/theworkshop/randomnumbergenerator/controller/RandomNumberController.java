@@ -29,8 +29,8 @@ public class RandomNumberController {
             for (int i = 0; i < count; i++) {
                 randomNumbers.add(random.nextInt(max - min + 1) + min);
             }
-
-            return ResponseEntity.<List<Integer>>ok(randomNumbers);
+            ResponseEntity<List<Integer>> responseEntity = ResponseEntity.ok(randomNumbers);
+            return responseEntity;
         } catch (NumberFormatException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (IllegalArgumentException e) {
