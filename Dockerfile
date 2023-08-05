@@ -12,7 +12,7 @@ FROM openjdk:17
 # Set the working directory inside the container
 WORKDIR /app
 # Copy the JAR file into the container
-COPY --from=build /home/app/target/random-number-generator*.jar app.jar
+COPY --from=build /app/target/random-number-generator*.jar app.jar
 # Expose the port on which the Spring Boot application will listen
 EXPOSE 8080
 # Set the command to run the Spring Boot application when the container starts
