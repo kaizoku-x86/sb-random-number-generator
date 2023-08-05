@@ -1,4 +1,4 @@
-FROM maven:3.8.1-jdk-17-slim AS build
+FROM maven:3.8.1-jdk-8-slim AS build
 # Set the working directory inside the container
 WORKDIR /app
 # Copy source files and pom.xml 
@@ -8,7 +8,7 @@ COPY pom.xml .
 RUN mvn clean package
 
 # Use the official OpenJDK 8 image as the base image
-FROM openjdk:17-jdk-alpine
+FROM openjdk:8-jdk-alpine
 # Set the working directory inside the container
 WORKDIR /app
 # Copy the JAR file into the container
