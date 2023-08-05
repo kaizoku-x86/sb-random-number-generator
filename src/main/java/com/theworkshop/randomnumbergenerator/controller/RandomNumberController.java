@@ -17,7 +17,6 @@ public class RandomNumberController {
             @RequestParam("count") int count,
             @RequestParam("min") int min,
             @RequestParam("max") int max) {
-        try{
             List<Integer> randomNumbers = new ArrayList<>();
 
             if (min >= max) {
@@ -29,6 +28,5 @@ public class RandomNumberController {
                 randomNumbers.add(random.nextInt(max - min + 1) + min);
             }
             return randomNumbers;
-        }
     }
 }
