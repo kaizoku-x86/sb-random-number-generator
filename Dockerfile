@@ -2,8 +2,8 @@ FROM maven:3.6.0-jdk-8-slim AS build
 # Set the working directory inside the container
 WORKDIR /app
 # Copy source files and pom.xml 
-COPY src /home/app/src
-COPY pom.xml /home/app
+COPY src ./src
+COPY pom.xml .
 # Running the build with maven
 RUN mvn clean package
 
