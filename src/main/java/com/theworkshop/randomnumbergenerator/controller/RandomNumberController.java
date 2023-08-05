@@ -30,7 +30,7 @@ public class RandomNumberController {
                 randomNumbers.add(random.nextInt(max - min + 1) + min);
             }
 
-            return randomNumbers;
+            return ResponseEntity.ok(randomNumbers);
         } catch (NumberFormatException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (IllegalArgumentException e) {
