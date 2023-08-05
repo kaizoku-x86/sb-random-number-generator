@@ -23,9 +23,6 @@ public class RandomNumberController {
             if (min >= max) {
                 throw new IllegalArgumentException("Invalid interval: min must be less than max");
             }
-            if (!(NumberUtils.isParsable(count)&&NumberUtils.isParsable(min)&&NumberUtils.isParsable(max))) {
-                throw new NumberFormatException("Invalid interval: min must be less than max");
-            }
 
             Random random = new Random();
             for (int i = 0; i < count; i++) {
