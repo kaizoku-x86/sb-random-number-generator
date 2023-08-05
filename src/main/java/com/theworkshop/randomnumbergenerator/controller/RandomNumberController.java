@@ -29,7 +29,7 @@ public class RandomNumberController {
             for (int i = 0; i < count; i++) {
                 randomNumbers.add(random.nextInt(max - min + 1) + min);
             }
-            ResponseEntity<List<Integer>> responseEntity = ResponseEntity.ok(randomNumbers);
+            ResponseEntity<List<Integer>> responseEntity = ResponseEntity.ok().body(randomNumbers);
             return responseEntity;
         } catch (NumberFormatException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
