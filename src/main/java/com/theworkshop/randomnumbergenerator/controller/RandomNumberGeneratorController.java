@@ -44,7 +44,7 @@ public class RandomNumberGeneratorController {
             for (int i = 0; i < count; i++) {
                 randomNumbers.add(random.nextInt(max - min + 1) + min);
             }
-            return ResponseEntity.ok().body("{"+randomNumbers+"}");
+            return ResponseEntity.ok().body(randomNumbers);
         } catch (NumberFormatException e) {
             return ResponseEntity.badRequest().body("{error:Invalid input: count, min, and max must be valid numbers.}");
         } catch (IllegalArgumentException e){
