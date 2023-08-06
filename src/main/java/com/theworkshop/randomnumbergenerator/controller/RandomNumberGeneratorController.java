@@ -14,7 +14,10 @@ import java.util.Random;
 public class RandomNumberGeneratorController {
     @GetMapping("/healthcheck")
     public ResponseEntity healthcheckRequest() {
-        return ResponseEntity.ok("Status: Healthy");
+        return ResponseEntity.ok(
+            "{
+                Status: Healthy
+            }");
     }
 
     @GetMapping("/generateRandomNumbers")
@@ -30,11 +33,11 @@ public class RandomNumberGeneratorController {
 
             // Validate input values
             if (count <= 0) {
-                throw new IllegalArgumentException("Invalid Argment: Count must be greater than zero.");
+                throw new IllegalArgumentException("{\n\tInvalid Argment: Count must be greater than zero.\n}");
             }
 
             if (min >= max) {
-                throw new IllegalArgumentException("Invalid interval: min must be less than max.");
+                throw new IllegalArgumentException("{\n\tInvalid interval: min must be less than max.\n}");
             }
 
             // Generate random numbers
@@ -44,11 +47,11 @@ public class RandomNumberGeneratorController {
             for (int i = 0; i < count; i++) {
                 randomNumbers.add(random.nextInt(max - min + 1) + min);
             }
-            return ResponseEntity.ok().body(randomNumbers);
+            return ResponseEntity.ok().body("{\n\t"+randomNumbers+"\n}");
         } catch (NumberFormatException e) {
-            return ResponseEntity.badRequest().body("{error:Invalid input: count, min, and max must be valid numbers.}");
+            return ResponseEntity.badRequest().body("{\n\terror:Invalid input: count, min, and max must be valid numbers.ºn}");
         } catch (IllegalArgumentException e){
-            return ResponseEntity.badRequest().body("{\n\t"+e.getMessage()+"}");
+            return ResponseEntity.badRequest().body("{\n\t"+e.getMessage()+"\n}");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
