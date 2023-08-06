@@ -14,10 +14,7 @@ import java.util.Random;
 public class RandomNumberGeneratorController {
     @GetMapping("/healthcheck")
     public ResponseEntity healthcheckRequest() {
-        return ResponseEntity.ok(
-            "{
-                Status: Healthy
-            }");
+        return ResponseEntity.ok("{\n\tStatus: Healthy\n}");
     }
 
     @GetMapping("/generateRandomNumbers")
