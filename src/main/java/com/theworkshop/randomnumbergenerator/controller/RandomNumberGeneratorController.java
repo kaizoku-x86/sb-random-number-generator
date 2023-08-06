@@ -12,6 +12,14 @@ import java.util.Random;
 
 @RestController
 public class RandomNumberGeneratorController {
+    @GetMapping("/healthcheck")
+    public ResponseEntity generateRandomNumbers{
+        return ResponseEntity.ok()
+    }
+}
+
+@RestController
+public class RandomNumberGeneratorController {
 
     @GetMapping("/generateRandomNumbers")
     public ResponseEntity generateRandomNumbers(
