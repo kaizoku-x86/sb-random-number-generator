@@ -1,7 +1,10 @@
 # Random Number Generator in Spring Boot
+This is a simple SpringBoot webApp that returns a set of random numbers depending on the parameters of the request.
 
+Mainly this repo has been used to test GitHub Actions and the power of a good implementation of CI/CD following the principles of GitOps.
 
-To build the current code:
+This repository only works to build the image and push it into a given dockerHub account or to build it and use the image locally with Docker. 
+
 ## Software requirements: 
 - Docker
 
@@ -47,3 +50,10 @@ To use the application to create a list of random numbers use the following path
 - min - minimum number to show
 - max - maximum number to show
 
+## CI/CD 
+In order to make easier the CI/CD there is a GitHub Action workflow which use the following secret to push the image into a public repository: 
+
+- ${{ secrets.DOCKER_HUB_USER }}
+- ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+Before to start commiting changes please consider to create the correct secrets.

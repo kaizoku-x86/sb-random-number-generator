@@ -11,6 +11,8 @@ RUN mvn clean package
 FROM openjdk:17
 # Set the working directory inside the container
 WORKDIR /app
+# Set the user to runner. Don't allow root privileges.
+USER runner:users
 # Copy the JAR file into the container
 COPY --from=build /app/target/random-number-generator*.jar app.jar
 # Expose the port on which the Spring Boot application will listen
