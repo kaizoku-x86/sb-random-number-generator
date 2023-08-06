@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.theworkshop</groupId>
 	<artifactId>random-number-generator</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>development</version>
 	<name>random-number-generator</name>
 	<description>Test app for The Workshop</description>
 	<properties>
